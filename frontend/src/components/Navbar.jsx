@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { ShoppingBag, Search, Menu, X, User } from "lucide-react";
 import { CATEGORIES } from "../lib/api";
 import { useCart } from "../context/CartContext";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "./ui/sheet";
 
 const Navbar = () => {
   const { count, setOpen } = useCart();
@@ -38,6 +38,8 @@ const Navbar = () => {
                 <Menu className="w-5 h-5 text-brand-ink" strokeWidth={1.5} />
               </SheetTrigger>
               <SheetContent side="left" className="w-[300px] bg-white">
+                <SheetTitle className="sr-only">Menú</SheetTitle>
+                <SheetDescription className="sr-only">Navegación principal</SheetDescription>
                 <div className="mt-8 flex flex-col gap-6">
                   <Link to="/" className="font-heading text-3xl text-brand-ink">Pop Up</Link>
                   <nav className="flex flex-col gap-4 text-sm uppercase tracking-widest">

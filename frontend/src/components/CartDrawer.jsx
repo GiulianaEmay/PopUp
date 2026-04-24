@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { X, Trash2, Minus, Plus } from "lucide-react";
-import { Sheet, SheetContent } from "./ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetDescription } from "./ui/sheet";
 import { useCart } from "../context/CartContext";
 import { formatPrice } from "../lib/api";
 
@@ -17,6 +17,8 @@ const CartDrawer = () => {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetContent side="right" className="w-full sm:max-w-md bg-white p-0 flex flex-col" data-testid="cart-drawer">
+        <SheetTitle className="sr-only">Tu carrito</SheetTitle>
+        <SheetDescription className="sr-only">Revisa los productos en tu carrito antes de finalizar la compra</SheetDescription>
         <div className="flex items-center justify-between px-6 py-5 border-b border-brand-line">
           <h2 className="font-heading text-2xl text-brand-ink">Tu carrito</h2>
           <button onClick={() => setOpen(false)} className="text-brand-ink hover:text-brand-accent" data-testid="cart-close">

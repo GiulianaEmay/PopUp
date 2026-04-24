@@ -5,7 +5,7 @@ import { Plus, Pencil, Trash2, Package, ShoppingBag, LogOut, X } from "lucide-re
 import api, { formatPrice, CATEGORIES, getCategoryLabel } from "../../lib/api";
 import { useAuth } from "../../context/AuthContext";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../../components/ui/tabs";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../../components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "../../components/ui/dialog";
 
 const AVAILABLE_SIZES = ["XS", "S", "M", "L", "XL"];
 
@@ -254,6 +254,9 @@ const AdminDashboard = () => {
         <DialogContent className="bg-white max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="font-heading text-3xl text-brand-ink">{editing ? "Editar" : "Nuevo"} producto</DialogTitle>
+            <DialogDescription className="font-body text-sm text-brand-muted">
+              Completa los datos de la prenda para {editing ? "actualizarla" : "agregarla"} al catálogo.
+            </DialogDescription>
           </DialogHeader>
           <form onSubmit={save} className="space-y-4">
             <AdminField label="Nombre" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required data-testid="form-product-name" />
