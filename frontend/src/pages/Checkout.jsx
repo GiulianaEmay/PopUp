@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "sonner";
-import api, { formatPrice } from "../lib/api";
+import { formatPrice, buildWhatsAppUrl } from "../lib/api";
 import { useCart } from "../context/CartContext";
 import { ArrowLeft } from "lucide-react";
 
@@ -16,22 +16,19 @@ const Checkout = () => {
 
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault();
     if (items.length === 0) return;
     setLoading(true);
     try {
-      const payload = {
-        ...form,
-        items: items.map(({ product_id, name, price, size, quantity, image }) => ({ product_id, name, price, size, quantity, image })),
-      };
-      const { data } = await api.post("/orders", payload);
+      const url = buildWhatsAppUrl(form, items, total);
+      const orderId = Date.now().toString(36).toUpperCase();
+      // abrir WhatsApp en nueva pestaña
+      window.open(url, "_blank", "noopener,noreferrer");
       clear();
-      navigate(`/order-success/${data.id}`);
+      navigate(`/order-success/${orderId}`);
     } catch (err) {
-      const detail = err.response?.data?.detail;
-      const msg = Array.isArray(detail) ? detail.map((d) => d.msg).join(" ") : (detail || "Error al crear el pedido");
-      toast.error(msg);
+      toast.error("Error al preparar el pedido");
     } finally {
       setLoading(false);
     }
@@ -56,7 +53,10 @@ const Checkout = () => {
           <ArrowLeft className="w-4 h-4" strokeWidth={1.5} /> Seguir comprando
         </Link>
 
-        <h1 className="font-heading text-5xl md:text-6xl text-brand-ink mb-12">Finalizar compra</h1>
+        <h1 className="font-heading text-5xl md:text-6xl text-brand-ink mb-4">Finalizar compra</h1>
+        <p className="font-body text-sm text-brand-muted mb-10 max-w-xl">
+          Completa tus datos y te redirigiremos a <span className="text-brand-accent font-medium">WhatsApp</span> con el resumen del pedido para coordinar el pago y envío.
+        </p>
 
         <form onSubmit={submit} className="grid lg:grid-cols-[1fr,420px] gap-10 lg:gap-16">
           {/* Form */}
@@ -87,14 +87,14 @@ const Checkout = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-brand-ink text-white hover:bg-brand-accent transition-all rounded-full py-5 text-xs uppercase tracking-[0.2em] font-body disabled:opacity-50"
+              className="w-full bg-brand-ink text-white hover:bg-brand-accent transition-all rounded-full py-5 text-xs uppercase tracking-[0.2em] font-body disabled:opacity-50 inline-flex items-center justify-center gap-2"
               data-testid="checkout-submit-button"
             >
-              {loading ? "Enviando..." : `Confirmar pedido — ${formatPrice(total)}`}
+              {loading ? "Enviando..." : (<>Enviar por WhatsApp — {formatPrice(total)}</>)}
             </button>
 
             <p className="font-body text-xs text-brand-muted leading-relaxed">
-              Al confirmar, enviaremos un correo con los detalles de tu pedido. El pago se coordina directamente contigo por WhatsApp.
+              Al confirmar se abrirá WhatsApp con el resumen de tu pedido. Coordinaremos el pago (Yape, Plin, transferencia) y el envío directamente por ese medio.
             </p>
           </div>
 

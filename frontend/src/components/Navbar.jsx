@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { ShoppingBag, Search, Menu, X, User } from "lucide-react";
+import { ShoppingBag, Search, Menu, X } from "lucide-react";
 import { CATEGORIES } from "../lib/api";
 import { useCart } from "../context/CartContext";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "./ui/sheet";
@@ -84,8 +84,8 @@ const Navbar = () => {
               >
                 <Search className="w-5 h-5" strokeWidth={1.5} />
               </button>
-              <Link to="/admin/login" className="hidden md:block text-brand-ink hover:text-brand-accent transition-colors" data-testid="admin-link" aria-label="Admin">
-                <User className="w-5 h-5" strokeWidth={1.5} />
+              <Link to="/admin/login" className="hidden md:block text-brand-ink hover:text-brand-accent transition-colors" data-testid="admin-link" aria-label="Admin" style={{display: 'none'}}>
+                {/* admin removed for Netlify deploy */}
               </Link>
               <button
                 onClick={() => setOpen(true)}

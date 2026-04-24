@@ -42,7 +42,6 @@ const Footer = () => {
               <li>Envíos a todo el país</li>
               <li>Política de cambios</li>
               <li>Guía de tallas</li>
-              <li><Link to="/admin/login" className="hover:text-brand-accent transition-colors" data-testid="footer-admin-link">Administración</Link></li>
             </ul>
           </div>
         </div>
