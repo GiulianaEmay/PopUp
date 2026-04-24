@@ -1,12 +1,14 @@
 [build]
   base = "frontend"
-  command = "yarn build"
+  command = "yarn install --network-timeout 300000 && yarn build"
   publish = "frontend/build"
 
 [build.environment]
   NODE_VERSION = "20"
   YARN_VERSION = "1.22.22"
   CI = "false"
+  DISABLE_ESLINT_PLUGIN = "true"
+  GENERATE_SOURCEMAP = "false"
 
 # SPA fallback — React Router
 [[redirects]]
