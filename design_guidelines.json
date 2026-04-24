@@ -1,0 +1,132 @@
+{
+  "project_name": "Pop Up",
+  "domain": "e-commerce",
+  "theme": "Light",
+  "archetype": "3 (Pastel & Soft)",
+  "vibe": "Elegant, feminine, modern boutique style with a clean minimalist approach, soft pastel colors, ample whitespace, and subtle micro-interactions.",
+  "colors": {
+    "primary": "#F4D7D9",
+    "primary_hover": "#E8C1C4",
+    "secondary": "#FAF7F5",
+    "background": "#FFFFFF",
+    "surface": "#FDFBFB",
+    "text_primary": "#2C2A29",
+    "text_secondary": "#878380",
+    "accent": "#D19B9F",
+    "border": "#EBE5E3"
+  },
+  "typography": {
+    "heading": "Cormorant Garamond",
+    "heading_fallback": "serif",
+    "body": "Outfit",
+    "body_fallback": "sans-serif",
+    "heading_weights": [300, 400, 500],
+    "body_weights": [300, 400, 500],
+    "scale": {
+      "h1": "text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight",
+      "h2": "text-3xl md:text-4xl tracking-tight",
+      "h3": "text-2xl md:text-3xl",
+      "h4": "text-xl",
+      "body": "text-base leading-relaxed tracking-wide",
+      "small": "text-sm uppercase tracking-widest text-text_secondary"
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Snug Simple & Resonant Stark - abundant whitespace, soft edges, no harsh lines.",
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-20 md:py-32",
+    "grid_system": "Bento-inspired asymmetrical grids for featured categories. 4-column standard grid for product catalog.",
+    "corners": "rounded-2xl for main images and cards, rounded-full for buttons and badges (light skeuomorphism).",
+    "shadows": "shadow-[0_8px_30px_rgba(209,155,159,0.08)] for soft, airy elevation."
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-text_primary hover:bg-primary_hover rounded-full px-8 py-3 transition-all duration-300 shadow-sm",
+      "secondary": "bg-transparent border border-border text-text_primary hover:border-accent hover:text-accent rounded-full px-8 py-3 transition-colors"
+    },
+    "cards": {
+      "product_card": "group relative overflow-hidden rounded-2xl bg-surface border border-transparent hover:border-border transition-all duration-500",
+      "product_image": "aspect-[3/4] object-cover w-full scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+    },
+    "header": {
+      "style": "sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-white/20 transition-all",
+      "navigation": "hidden md:flex gap-8 text-sm uppercase tracking-widest text-text_primary"
+    },
+    "hero": {
+      "layout": "min-h-[80vh] flex items-center justify-center relative overflow-hidden rounded-b-3xl md:rounded-b-[4rem]",
+      "overlay": "absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent z-10"
+    }
+  },
+  "motion_and_interactions": {
+    "hover": "Subtle scale up (1.05) on product images. Slow, easing transitions (duration-500).",
+    "page_load": "Staggered fade-up for product grids and typography.",
+    "micro_interactions": "Soft color fill transitions on icons, light tactile bounce on buttons."
+  },
+  "media": {
+    "images": {
+      "hero_banner": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/0b23cfd5-8cc1-479c-83ea-8b020088f0be/images/eb0d2a034d636d7e5f97ff3473c1bd616d66bc16df50d8512bf9c4f1134a4773.png",
+        "description": "Elegant fashion editorial hero image with dusty rose styling",
+        "category": "hero"
+      },
+      "hero_secondary": {
+        "url": "https://images.pexels.com/photos/7872805/pexels-photo-7872805.jpeg",
+        "description": "Dynamic low-angle shot of young women walking confidently in pastel suits",
+        "category": "hero_alt"
+      },
+      "product_blusa": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/0b23cfd5-8cc1-479c-83ea-8b020088f0be/images/e567ae3faca490a10a29e55330f17000c495275f5aaf1289445a7f2d34b22f67.png",
+        "description": "Elegant pastel pink women's blouse on white background",
+        "category": "product_blusas"
+      },
+      "product_falda": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/0b23cfd5-8cc1-479c-83ea-8b020088f0be/images/ebbe02c69cdea875ef6b1acd5aeed509c783df10684487cda2658e09147fc21f.png",
+        "description": "Stylish pastel rose midi skirt on white background",
+        "category": "product_faldas"
+      },
+      "product_vestido": {
+        "url": "https://images.unsplash.com/photo-1653286431693-2bbde8b10e14?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwd29tZW4lMjBkcmVzcyUyMHBhc3RlbHxlbnwwfHx8fDE3NzcwNTE2OTJ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Woman in white dress holding bouquet",
+        "category": "product_vestidos"
+      },
+      "product_conjunto": {
+        "url": "https://images.pexels.com/photos/7691223/pexels-photo-7691223.jpeg",
+        "description": "Models dressed in elegant suits",
+        "category": "product_conjuntos"
+      },
+      "product_pantalon": {
+        "url": "https://images.unsplash.com/photo-1496865534669-25ec2a3a0fd3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHwxfHx3b21lbiUyMGZhc2hpb24lMjBtb2RlbCUyMHBhc3RlbCUyMG1pbmltYWx8ZW58MHx8fHwxNzc3MDUxNjkyfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Woman standing, pastel minimal fashion",
+        "category": "product_pantalones"
+      },
+      "texture_background": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/0b23cfd5-8cc1-479c-83ea-8b020088f0be/images/7aad452f6bec5c7dd0bbad9c1e81a41ca0ab31013a505d1cedd4fe9c3f08eab0.png",
+        "description": "Subtle dusty rose and white gradient texture",
+        "category": "background"
+      }
+    }
+  },
+  "testing_attributes": {
+    "required": true,
+    "pattern": "data-testid='[role-based-kebab-case]'",
+    "examples": [
+      "data-testid='add-to-cart-button'",
+      "data-testid='category-filter-select'",
+      "data-testid='checkout-submit-button'"
+    ]
+  },
+  "iconography": {
+    "library": "lucide-react",
+    "style": "stroke-width: 1.5, clean, unopinionated curves to match Outfit typography."
+  },
+  "instructions_to_main_agent": [
+    "Ensure all interactive elements have data-testid attributes per the required pattern.",
+    "Use Cormorant Garamond for all H1/H2 headings to establish the elegant boutique feel, and Outfit for UI text and paragraphs.",
+    "Do not use dark mode. The application is strictly a Light theme, utilizing soft pastel pinks, dusty rose accents, and pure white backgrounds.",
+    "Apply `rounded-2xl` to product images and cards for the 'Snug Simple' aesthetic trend.",
+    "Product images should have an aspect ratio of 3:4 to mimic high-end fashion photography.",
+    "The Header must be sticky with a backdrop-blur (Glassmorphism) using `bg-white/80` to maintain elegance without clutter.",
+    "Use the provided image URLs exactly as specified for their respective categories.",
+    "Follow the generous spacing philosophy: use `p-6`, `p-12` or larger for layout padding to maintain a clean, high-end e-commerce appearance."
+  ]
+}
